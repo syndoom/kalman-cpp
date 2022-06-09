@@ -9,6 +9,8 @@ This filter has been successfully used for the
 [Iron Dome](https://github.com/hmartiro/iron-dome), a robotic system
 which detects and intercepts dynamically thrown projectiles in fractions of a second.
 
+sudo apt install libeigen3-dev
+
 There is a test program that estimates the motion of a projectile based on
 noisy observations. To run it, use CMake:
 
