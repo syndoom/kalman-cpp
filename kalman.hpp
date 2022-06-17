@@ -45,7 +45,7 @@ public:
   /**
   * Initialize the filter with a guess for initial states.
   */
-  void init(double t0, const Eigen::VectorXd& x0);
+  void init(const Eigen::VectorXd& x0);
 
   /**
   * Update the estimated state based on measured values. The
@@ -62,8 +62,9 @@ public:
   /**
   * Return the current state and time.
   */
-  Eigen::VectorXd state() { return x_hat; };
-  // double time() { return t; };
+  Eigen::VectorXd state_mean() { return this->x_hat; };
+  Eigen::MatrixXd state_cov() { return this->P; };
+
 
 private:
 

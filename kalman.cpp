@@ -25,7 +25,7 @@ KalmanFilter::KalmanFilter(
 
 KalmanFilter::KalmanFilter() {}
 
-void KalmanFilter::init(double t0, const Eigen::VectorXd& x0) {
+void KalmanFilter::init(const Eigen::VectorXd& x0) {
   x_hat = x0;
   P = P0;
 
@@ -42,6 +42,15 @@ void KalmanFilter::update(const Eigen::VectorXd& y) {
 
   if(!initialized)
     throw std::runtime_error("Filter is not initialized!");
+
+  // std::cout << "inside!!!!! " << std::endl;
+  // std::cout << "inside A: \n" << this->A << std::endl;
+  // std::cout << "inside C: \n" << C << std::endl;
+  // std::cout << "inside Q: \n" << this->Q << std::endl;
+  // std::cout << "inside R: \n" << this->R << std::endl;
+  // std::cout << "inside P: \n" << P << std::endl;
+
+  // std::cout << "----------------------------- " << std::endl;
 
   x_hat_new = A * x_hat;
   P = A*P*A.transpose() + Q;
