@@ -18,4 +18,5 @@ else()
     add_library(onlinekalman STATIC
     kalman.cpp kalman.hpp
     )
+    target_include_directories(onlinekalman INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 endif()
