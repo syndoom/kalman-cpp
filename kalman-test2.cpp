@@ -64,10 +64,11 @@ int main(int argc, char* argv[]) {
     std::cout << "updating C "  << Cn << std::endl;
     std::cout << "updating y "  << y << std::endl;
 
-
+    Eigen::Vector2d vv;
     kf.updateWithObsMat(y, Cn);
+    vv = kf.state_mean();
     std::cout << "y[" << i << "] = " << y.transpose()
-        << ", x_hat[" << i << "] = " << kf.state_mean().transpose()
+        << ", x_hat[" << i << "] = " << kf.state_mean().transpose() << " beta= " << vv[0] <<  " alpha= " << vv[1]
         << "\ncovariance \n" << kf.state_cov() << std::endl;
   }
   
